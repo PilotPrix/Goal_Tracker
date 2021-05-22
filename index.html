@@ -37,32 +37,24 @@
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<input type="text"  class="start" name="goal" placeholder="Type in your goal stage">
-	<input type="date" class="start2" id="date_in" name="start"/>
+	
+		<input type="date" class="start2" id="date_in" name="start"/>
 
     <button onclick="addLine()" class="add_button">Add</button>
     <div id="new_space"></div>
-    <div id="new_date_space"></div>
 
     <input type="hidden" class="start" value="1" id="new_line" placeholder="Type in your goal stage">
-    <!--New Thing -->
-   <!--  <input type="hidden" class="start2" id="new_date_in" name="start"/> -->
+
 	<script>
 	  function addLine(){
       var new_chq_no = parseInt($('#new_line').val())+1;
       var new_input="<input type='text'class='start' placeholder='Type in your goal stage'id='new_"+new_chq_no+"'><input type='date' id='date_in' class='start2'/><button onclick='addLine()'class='add_button'>Add</button> <br>";
-      // var new_input="<input type='text'class='start' placeholder='Type in your goal stage'id='new_"+new_chq_no+"'>";
-      // var new_date_input = "<input type='date' class='start2' id='new_"+new_chq_ne+"'/> <br>";
 
       $('#new_space').append(new_input);
-      // $('#new_date_space').append(new_date_input);
       $('#new_line').val(new_chq_no);
-      // $('#new_date_in').val(new_chq_ne);
+      date_in.id += ;
 
       function dateVar() {
-  //     document.getElementById("date_in").addEventListener("change", function() {
-		//  	var input = this.value;
-		// 	console.log(input);
-		// })
 		var input = document.getElementById("date_in").value;
 		console.log(input);
   	};
@@ -75,11 +67,27 @@
 
 			<button id="calculate" class="add_button" onclick="show()">Amount of Days Left</button>
 			<button id="calculate" class="add_button" >Progress</button>
-			<button id="calculate" class="add_button" >Milestone Timeline</button>
-
+			<button id="calculate" class="add_button" onclick="order()">Milestone Timeline</button>
+<!-- Amount of days left in order to achieve each stage of the goal-->
 		<div class="results">
 			<p id="remainingTime"></p>
 		</div>
+
+<!-- Putting gola stages in order from the earliest to the latest--> 
+	<div class="timeline">
+		<h2>The timeline of your milestones:</h2>
+		<p id="timeline"></p>
+	</div>
+
+		<script>
+			var dates_list = [];
+			function order(){
+				var dates = document.getElementById("date_in").value;
+				dates_list.push(dates);
+				console.log(dates_list);
+		}
+		</script>
+
 		<script>
 			function show(){
 				var x = document.getElementById("remainingTime");
