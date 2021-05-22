@@ -37,7 +37,7 @@
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<input type="text"  class="start" name="goal" placeholder="Type in your goal stage">
-	<input type="date" class="start2" name="start"/>
+	<input type="date" class="start2" id="date_in" name="start"/>
 
     <button onclick="addLine()" class="add_button">Add</button>
     <div id="new_space"></div>
@@ -46,10 +46,18 @@
 	<script>
 	  function addLine(){
       var new_chq_no = parseInt($('#new_line').val())+1;
-      var new_input="<input type='text'class='start' placeholder='Type in your goal stage'id='new_"+new_chq_no+"'><input type='date' class='start2'/> <br>";
+      var new_input="<input type='text'class='start' placeholder='Type in your goal stage'id='new_"+new_chq_no+"'><input type='date' id='date_in' class='start2'/> <br>";
       $('#new_space').append(new_input);
       $('#new_line').val(new_chq_no);
     }
+	</script>
+	<script>
+		document.getElementById("date_in").addEventListener("change", function() {
+			var input = this.value;
+			var dateEntered = new Date(input);
+			console.log(input);
+			console.log(dateEntered);
+		})	
 	</script>
 	
 	<br><br>
