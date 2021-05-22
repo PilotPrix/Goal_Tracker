@@ -16,14 +16,10 @@ body{
 }
 .add_button{
 	font-color: black;
-	/*margin-top: 20%;
-	margin-bottom: 5%;
-	margin-top: 20%;
-    margin-bottom: 5%;*/
     border: none;
     border-radius: 33px;
     font-size: 140%;
-    padding: 1% 2%;
+    padding: 0.5% 1%;
     margin-left: 1%;
 }
 .container{
