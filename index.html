@@ -41,28 +41,68 @@
 
     <button onclick="addLine()" class="add_button">Add</button>
     <div id="new_space"></div>
+    <div id="new_date_space"></div>
 
     <input type="hidden" class="start" value="1" id="new_line" placeholder="Type in your goal stage">
+    <!--New Thing -->
+   <!--  <input type="hidden" class="start2" id="new_date_in" name="start"/> -->
 	<script>
 	  function addLine(){
       var new_chq_no = parseInt($('#new_line').val())+1;
       var new_input="<input type='text'class='start' placeholder='Type in your goal stage'id='new_"+new_chq_no+"'><input type='date' id='date_in' class='start2'/> <br>";
+      // var new_input="<input type='text'class='start' placeholder='Type in your goal stage'id='new_"+new_chq_no+"'>";
+      // var new_date_input = "<input type='date' class='start2' id='new_"+new_chq_ne+"'/> <br>";
+
       $('#new_space').append(new_input);
+      // $('#new_date_space').append(new_date_input);
       $('#new_line').val(new_chq_no);
+      // $('#new_date_in').val(new_chq_ne);
     }
 	</script>
 	<script>
-		document.getElementById("date_in").addEventListener("change", function() {
-			var input = this.value;
-			var dateEntered = new Date(input);
-			console.log(input);
-			console.log(dateEntered);
-		})	
+		    document.getElementById("date_in").addEventListener("change", function() {
+		 	var input = this.value;
+		 	console.log(input);
+		 })	
+		 //    document.getElementById("new_date_in").addEventListener("change", function() {
+		 // 	var input = this.value;
+		 // 	console.log(input);
+		 // })	
 	</script>
 	
 	<br><br>
 		<input type="checkbox" class="checkb">I would like to receive notifications on my milestones</checkbox><br>
 
-		<button onclick="timeLine()" class="add_button" id="miles_b">Create Milestones</button>
+		<div class="results">
+			<p id="remainingTime"></p>
+		</div>
+		<script>
+			function refreshTimer(){
+			  function countDown(){
+			    setTimeout(function(now){
+                 var dif = (td-now)/1000,
+                      ss = Math.floor(dif % 60).toString().padStart(2,"0"),
+                      ms = Math.floor(dif/60 % 60).toString().padStart(2,"0"),
+                      hs = Math.floor(dif/3600 % 24).toString().padStart(2,"0"),
+                      ds = Math.floor(dif/86400).toString().padStart(3,"0");
+                  remainingTime.textContent = dif > 0 ? `${ds} Days ${hs}:${ms}:${ss}`
+                                                      : "Sorry. You are already late..!";
+                  active && countDown();
+                  this.removeEventListener("change", kill); // possibly redundant
+                }, 1000, Date.now());
+  }
+			  var td     = new Date(this.value),
+			      active = true,
+			      kill   = _ => active = false;
+			  this.addEventListener("change", kill);
+			  countDown();
+			}
+
+			var targetDateTime = document.getElementById("date_in"),
+			    remainingTime  = document.getElementById("remainingTime");
+
+			targetDateTime.addEventListener("change",refreshTimer);
+
+		</script>
 
 </body>
