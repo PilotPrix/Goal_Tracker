@@ -46,17 +46,25 @@
     <input type="hidden" class="start" value="1" id="new_line" placeholder="Type in your goal stage">
 
 	<script>
-	  function addLine(){
-      var new_chq_no = parseInt($('#new_line').val())+1;
-      var new_input="<input type='text'class='start' placeholder='Type in your goal stage'id='new_"+new_chq_no+"'><input type='date' id='date_in' class='start2'/><button onclick='addLine()'class='add_button'>Add</button> <br>";
+		var index = 0;
+	 
+		function addLine(){
+			index++;
+			var new_chq_no = parseInt($('#new_line').val())+1;
+			var new_input="<input type='text'class='start' placeholder='Type in your goal stage'id='new_"+new_chq_no+"'><input type='date' id='date_in0' class='start2'/><button onclick='addLine()'class='add_button'>Add</button> <br>";
 
-      $('#new_space').append(new_input);
-      $('#new_line').val(new_chq_no);
-      date_in.id += ;
+			$('#new_space').append(new_input);
+			$('#new_line').val(new_chq_no);
+			date_in.id == date_in.id + index;
 
-      function dateVar() {
-		var input = document.getElementById("date_in").value;
-		console.log(input);
+		function dateVar() {
+			var input;
+			for(i = 0; i < index; i++){
+				console.log("date_in" + i);
+				//input = document.getElementById("date_in" + i.toString).id;
+			}
+
+			//console.log(input);
   	};
   	dateVar();
   };
