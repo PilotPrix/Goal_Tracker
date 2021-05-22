@@ -49,7 +49,7 @@
 	<script>
 	  function addLine(){
       var new_chq_no = parseInt($('#new_line').val())+1;
-      var new_input="<input type='text'class='start' placeholder='Type in your goal stage'id='new_"+new_chq_no+"'><input type='date' id='date_in' class='start2'/> <br>";
+      var new_input="<input type='text'class='start' placeholder='Type in your goal stage'id='new_"+new_chq_no+"'><input type='date' id='date_in' class='start2'/><button onclick='addLine()'class='add_button'>Add</button> <br>";
       // var new_input="<input type='text'class='start' placeholder='Type in your goal stage'id='new_"+new_chq_no+"'>";
       // var new_date_input = "<input type='date' class='start2' id='new_"+new_chq_ne+"'/> <br>";
 
@@ -57,14 +57,17 @@
       // $('#new_date_space').append(new_date_input);
       $('#new_line').val(new_chq_no);
       // $('#new_date_in').val(new_chq_ne);
-    }
-	</script>
-	<script>
-		   document.getElementById("date_in").addEventListener("change", function() {
-		 	var input = this.value;
-			console.log(input);
-		})
 
+      function dateVar() {
+  //     document.getElementById("date_in").addEventListener("change", function() {
+		//  	var input = this.value;
+		// 	console.log(input);
+		// })
+		var input = document.getElementById("date_in").value;
+		console.log(input);
+  	};
+  	dateVar();
+  };
 	</script>
 	
 	<br><br>
