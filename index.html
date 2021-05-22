@@ -13,18 +13,18 @@
 	<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300&display=swap" rel="stylesheet">
 	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
 <body>
 	<script>
- 			 AOS.init();
- 			 AOS.init({
- 			 	duration: 1000,
- 			 	offset: 120,
- 			 	throttleDelay: 200,
- 			 });
-		</script>
+		AOS.init();
+		AOS.init({
+		duration: 1000,
+		offset: 120,
+		throttleDelay: 200,
+		});
+	</script>
 	<div class="container">
 		<h1 class="center">Goal Tracker and Milestone Setter</h1>
 		<button type="button" class="header_button">Set My Goal</button>
@@ -64,8 +64,13 @@
 
 	
 	<div>
-		<hr>
 		<h4>What is your goal?</h4>
-		<input type="text"></input>
+		<input type="text"/>
+	</div>
+
+	<div>
+		<h4>Would you like to be notified of your milestones?</h4>
+		<input type="checkbox">Yes</input>
+		<input type="checkbox">No</div>
 	</div>
 </body>
