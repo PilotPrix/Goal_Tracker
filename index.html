@@ -32,31 +32,29 @@
 	</div>	
 	<div>
 		<h4>What is your goal?</h4>
-		<input type="text" name="goal" placeholder="Type in your Goal"/>
+		<input type="text" name="goal" class="start" placeholder="Type in your Goal"/>
 		<h4>Split your goal into different stages?</h4>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-	<input type="text" name="goal" placeholder="Type in your goal stage">
-	<input type="date" id="start" name="start"/>
+	<input type="text"  class="start" name="goal" placeholder="Type in your goal stage">
+	<input type="date" class="start2" name="start"/>
 
     <button onclick="addLine()" class="add_button">Add</button>
     <div id="new_space"></div>
 
-    <input type="hidden" value="1" id="new_line" placeholder="Type in your goal stage">
-
-		<!-- <input type="text" name="goal" placeholder="Type in your first goal stage"/>
-		<input type="date" id="start" name="start"/>
-		<button class="add_button">Add</button> -->
-
+    <input type="hidden" class="start" value="1" id="new_line" placeholder="Type in your goal stage">
 	<script>
 	  function addLine(){
       var new_chq_no = parseInt($('#new_line').val())+1;
-      var new_input="<input type='text' placeholder='Type in your goal stage'id='new_"+new_chq_no+"'><input type='date' id='start'/> <br>";
+      var new_input="<input type='text'class='start' placeholder='Type in your goal stage'id='new_"+new_chq_no+"'><input type='date' class='start2'/> <br>";
       $('#new_space').append(new_input);
       $('#new_line').val(new_chq_no);
     }
 	</script>
-		</div>
-<br><br>
-		<input type="checkbox">I would like to receive notifications on my milestones</checkbox>
+	
+	<br><br>
+		<input type="checkbox" class="checkb">I would like to receive notifications on my milestones</checkbox><br>
+
+		<button onclick="timeLine()" class="add_button" id="miles_b">Create Milestones</button>
+
 </body>
