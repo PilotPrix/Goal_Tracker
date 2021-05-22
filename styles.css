@@ -1,0 +1,30 @@
+body{
+	font-family: 'Lexend', sans-serif;
+	font-color: black;
+}
+.header_button{
+	font-color: black;
+	margin-top: 20%;
+	margin-bottom: 5%;
+	margin-top: 20%;
+    margin-bottom: 5%;
+    border: none;
+    border-radius: 33px;
+    font-size: 140%;
+    padding: 1% 2%;
+    margin-left: 1%;
+}
+.container{
+	position: relative;
+	text-align: center;
+	background-color: green;
+}
+.center{
+	left: 50%;
+	top: 20%;
+    font-size: 337%;
+	color: white;
+	position: absolute;
+	transform: translate(-50%, -50%);
+	font-family: 'Lexend', sans-serif;
+}
