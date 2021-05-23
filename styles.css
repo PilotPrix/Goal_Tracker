@@ -62,3 +62,9 @@ body{
 .add_button:hover{
 	background-color: green;
 }
+.remainingTime{
+	display: none;
+}
+#results{
+	display: none;
+}
