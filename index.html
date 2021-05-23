@@ -38,7 +38,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<input type="text"  class="start" name="goal" placeholder="Type in your goal stage">
 	
-		<input type="date" class="start2" id="date_in" name="start"/>
+		<input type="date" class="start2" id="date_in0" name="start"/>
 
     <button onclick="addLine()" class="add_button">Add</button>
     <div id="new_space"></div>
@@ -47,24 +47,20 @@
 
 	<script>
 		var index = 0;
-	 
+
 		function addLine(){
 			index++;
+
 			var new_chq_no = parseInt($('#new_line').val())+1;
-			var new_input="<input type='text'class='start' placeholder='Type in your goal stage'id='new_"+new_chq_no+"'><input type='date' id='date_in0' class='start2'/><button onclick='addLine()'class='add_button'>Add</button> <br>";
+			var new_input="<input type='text'class='start' placeholder='Type in your goal stage'id='new_"+new_chq_no+"'><input type='date' id='date_in' class='start2'/><button onclick='addLine()'class='add_button'>Add</button> <br>";
 
 			$('#new_space').append(new_input);
 			$('#new_line').val(new_chq_no);
-			date_in.id == date_in.id + index;
+			document.getElementById('date_in').id = "date_in" + index;
 
 		function dateVar() {
-			var input;
-			for(i = 0; i < index; i++){
-				console.log("date_in" + i);
-				//input = document.getElementById("date_in" + i.toString).id;
-			}
-
-			//console.log(input);
+			var input = document.getElementById("date_in" + (index - 1).toString()).value;
+			console.log(input);
   	};
   	dateVar();
   };
@@ -90,9 +86,25 @@
 		<script>
 			var dates_list = [];
 			function order(){
-				var dates = document.getElementById("date_in").value;
-				dates_list.push(dates);
-				console.log(dates_list);
+				var dates = [];
+				i = 0;
+				while(true){
+					// check if element with index exists
+					if(document.getElementById("date_in" + i)){
+						dates[i] = document.getElementById("date_in" + i)
+					}
+					// if element doesn't exist, break out of the loop. The array now has all the dates.
+					else{
+						break;
+					}
+					i++
+				}
+				
+				console.log(dates);
+				// for(I = 0; I < dates.length; I++){
+				// 	dates_list.push(dates[I]);
+				// 	console.log(dates_list);
+				// }
 		}
 		</script>
 
