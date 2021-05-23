@@ -172,10 +172,11 @@
 				console.log(result);
 
 				function calculate(){
-					var progress = (result / expectation) * 100 + "%";
-					// progress = progress.toFixed(2);					
-					console.log(progress);
-					document.getElementById('progress').innerHTML = progress;
+					var progress = (result / expectation) * 100;
+					// var progress_t = (result / expectation) * 100 + "%";
+					var p = progress.toFixed(0);			
+					console.log(p + "%");
+					document.getElementById('progress').innerHTML = p + "%";
 				};
 			calculate();
 		}
