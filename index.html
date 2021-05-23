@@ -105,8 +105,20 @@
 		<script>
 			var dates_list = [];
 			function order(){
-				var dates = document.getElementById("date_in").value;
-				dates_list.push(dates);
+				i = 0;
+				while(true){
+					// check if date_in i "eg. date_in5" exists
+					if(document.getElementById("date_in" + i)){
+						// save date to dates_list
+						var date = document.getElementById("date_in" + i).value
+						dates_list[i] = date;
+					}
+					// if date_in i doesn't exist, break
+					else{
+						break;
+					}
+					i++;
+				}
 				console.log(dates_list);
 			};
 			function calculateProgress() {
