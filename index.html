@@ -25,27 +25,52 @@
 		throttleDelay: 200,
 		});
 	</script>
+
 	<div class="container">
 		<h1 class="center">Goal Tracker and Milestone Setter</h1>
-		<button type="button" class="header_button">Set My Goal</button>
-		<button type="button" class="header_button">Learn More</button>
+		<button onclick="show3()" class="header_button">Set My Goal</button>
+		<button onclick="show4()" class="header_button">Learn More</button>
 	</div>	
-	<div>
-		<h4>What is your goal?</h4>
-		<input type="text" name="goal" class="start" placeholder="Type in your Goal"/>
-		<h4>Split your goal into different stages?</h4>
+	<div id="about">
+		<h2>About this application:</h2>
+		<p >This web application helps its users set and manage their goals. Users can split their goal into different stages which will then be converted into milestones. In addition, this application has other usefull features, such as progress calculator and amount of time left until goal completion. All these features are supposed to help the users become more productive and achieve their goals better</p>
+	</div>
+	<div id="goals">
+				<h4>What is your goal?</h4>
+				<input type="text" name="goal" class="start" placeholder="Type in your Goal"/>
+				<h4>Split your goal into different stages?</h4>
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-	<input type="text"  class="start" name="goal" placeholder="Type in your goal stage">
-	
-		<input type="date" class="start2" id="date_in0" name="start"/>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+			<input type="text"  class="start" name="goal" placeholder="Type in your goal stage">
+			
+				<input type="date" class="start2" id="date_in0" name="start"/>
 
-    <button onclick="addLine()" class="add_button">Add</button>
-    <div id="new_space"></div>
+		    <button onclick="addLine()" class="add_button">Add</button>
+		    <div id="new_space"></div>
 
-    <input type="hidden" class="start" value="1" id="new_line" placeholder="Type in your goal stage">
+		    <input type="hidden" class="start" value="1" id="new_line" placeholder="Type in your goal stage">
+		    <br><br>
+			<input type="checkbox" class="checkb">I would like to receive notifications on my milestones</checkbox><br>
+	</div>
 
 	<script>
+		function show3() {
+			var section = document.getElementById("goals");
+				if (section.style.display === "none"){
+					section.style.display = "block";
+				} else {
+					section.style.display = "none";
+				}
+		}
+		function show4() {
+			var section_two = document.getElementById("about");
+				if (section_two.style.display === "none"){
+					section_two.style.display = "block";
+				} else {
+					section_two.style.display = "none";
+				}
+		}
+
 		var index = 0;
 
 		function addLine(){
@@ -61,26 +86,25 @@
 		function dateVar() {
 			var input = document.getElementById("date_in" + (index - 1).toString()).value;
 			console.log(input);
+			var input_text = document.getElementById('new_line')
   	};
   	dateVar();
   };
 	</script>
-	
-	<br><br>
-		<input type="checkbox" class="checkb">I would like to receive notifications on my milestones</checkbox><br>
-
+		<div class="buttons">
 			<button id="calculate" class="add_button" onclick="show()">Amount of Days Left</button>
 			<button id="calculate" class="add_button" onclick="showTwo()">Progress</button>
 			<button id="calculate" class="add_button" onclick="order()">Milestone Timeline</button>
+		<div/>
 <!-- Amount of days left in order to achieve each stage of the goal-->
 		<div class="results">
 			<p id="remainingTime"></p>
 		</div>
 
 <!-- Putting goal stages in order from the earliest to the latest--> 
-	<div class="timeline">
+	<div id="timeline_section">
 		<h2>The timeline of your milestones:</h2>
-		<p id="timeline"></p>
+		<span id="timeline"></span>
 	</div>
 
 <!-- Calculating the user's progress-->
@@ -92,7 +116,8 @@
 	<button onclick="calculateProgress()" class="add_button">Calculate</button>
 	<h3>Your Overall Progress: <span id="progress"></span></h3>
 </div>
-		<script>
+
+<script>
 			function showTwo(){
 				var y = document.getElementById("results");
 				if (y.style.display === "none"){
@@ -119,7 +144,25 @@
 					}
 					i++;
 				}
+				var time = document.getElementById("timeline_section");
+				if (time.style.display === "none"){
+					time.style.display = "block";
+				} else {
+					time.style.display = "none";
+				}
 				console.log(dates_list);
+				document.getElementById('timeline').innerHTML = dates_list;
+				var goal_input = document.getElementById()
+
+				// var sorted = sort(dates_list);
+				// console.log(sorted);
+				// import moment from 'moment'
+				// const sortDates = (a, b) => 
+				// moment(a.roomtypedate).format('YYYYMMDD') - 
+				// moment(b.roomtypedate).format('YYYYMMDD')
+
+				// const sortedDates = dates_list.sort(sortDates)
+				// console.log(sortedDates);
 			};
 			function calculateProgress() {
 				var expectation = document.getElementById("text_one").value;
