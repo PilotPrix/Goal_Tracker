@@ -1,2 +1,2 @@
 # Goal Tracker
-My second hackathon at SJAM (JAMHacks)
+Hackathon at SJAM (JAMHacks)
